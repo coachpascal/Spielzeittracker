@@ -110,6 +110,7 @@
 </head>
 <body>
 <h2>Spielzeit Tracker</h2>
+    <button id="install-button" hidden>App installieren</button>
 <div class="game-time">
 <label for="maxTime">Maximale Spielzeit (Minuten):</label>
 <input id="maxTime" min="1" type="number" value="60"/>
@@ -145,7 +146,8 @@
 <th>Ein-/Auswechseln</th>
 </tr>
 </thead>
-<tbody></tbody>
+<tbody>    
+</tbody>
 </table>
 <!-- Spielerauswahl-Fenster -->
 <div class="hidden" id="playerSelectModal">
@@ -430,5 +432,26 @@ renderKaderList = function () {
 };
 
 </script>
+    let deferredPrompt;
+const installButton = document.getElementById('install-button');
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  installButton.hidden = false;
+});
+
+installButton.addEventListener('click', async () => {
+  if (!deferredPrompt) return;
+  deferredPrompt.prompt();
+  const { outcome } = await deferredPrompt.userChoice;
+  console.log(`Installationsentscheidung: ${outcome}`);
+  deferredPrompt = null;
+  installButton.hidden = true;
+});
+
+window.addEventListener('appinstalled', () => {
+  console.log('PWA wurde installiert');
+});
 </body>
 </html>
