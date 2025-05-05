@@ -432,7 +432,8 @@ renderKaderList = function () {
 };
 
 </script>
-    let deferredPrompt;
+   <script>
+       let deferredPrompt;
 const installButton = document.getElementById('install-button');
 
 window.addEventListener('beforeinstallprompt', (e) => {
@@ -452,6 +453,6 @@ installButton.addEventListener('click', async () => {
 
 window.addEventListener('appinstalled', () => {
   console.log('PWA wurde installiert');
-});
+});/script>
 </body>
 </html>
