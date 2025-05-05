@@ -1,7 +1,7 @@
 {
   "name": "Spielzeit Tracker",
   "short_name": "Spielzeit",
-  "start_url": "/Spielzeittracker/spielzeit_tracker_modern_mobile.html",
+  "start_url": "/Spielzeittracker/index.html",
   "display": "standalone",
   "background_color": "#f4f6f8",
   "theme_color": "#2c3e50",
