@@ -2,7 +2,7 @@ self.addEventListener('install', event => {
   event.waitUntil(
     caches.open('spielzeit-cache').then(cache => {
       return cache.addAll([
-        '/Spielzeittracker/spielzeit_tracker_modern_mobile.html',
+        '/Spielzeittracker/index.html',
         '/Spielzeittracker/manifest.webmanifest',
         '/Spielzeittracker/icon-192.png',
         '/Spielzeittracker/icon-512.png'
